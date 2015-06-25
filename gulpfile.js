@@ -47,7 +47,7 @@ gulp.task('server-jshint', function() {
 gulp.task('serve', function() {
   livereload.listen();
   nodemon({
-    script: 'server.js',
+    script: './server.js',
     stdout: false
   }).on('readable', function() {
     this.stdout.on('data', function(chunk) {
@@ -57,7 +57,7 @@ gulp.task('serve', function() {
       process.stdout.write(chunk);
     });
   });
-  gulp.watch('public/assets/css/scss/**/*.scss', ['compileSass']);
+  gulp.watch('public/assets/css/**/*.scss', ['compileSass']);
   gulp.watch('public/assets/**/*.js', ['client-jshint']);
   gulp.watch(serverJS, ['server-jshint']);
 });
